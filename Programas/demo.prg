@@ -73,7 +73,7 @@ hBox = CreateBox(_Screen.HWnd, 0)
 =SetNum(hBox, Box_WantShow, 1)
 =SetNum(hBox, Box_WantPageCount, 1)  ' Activates pre-calculation
 
-SetStr(hBox, Box_FileName, FULLPATH("") + "PDF_Demo")
+SetStr(hBox, Box_FileName, FULLPATH("") + "PDF/PDF_Demo")
 
 CallBox(BeginDoc(hBox))
 SetNum(hBox, Box_FontBold, 1)

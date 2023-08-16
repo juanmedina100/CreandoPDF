@@ -23,39 +23,6 @@ SET DEFAULT TO FULLPATH("")
 
 #define CRTLF CHR(13)+ CHR(10)
 
-* Creación el Cursos TABLE_DATA
-
-*!*	CREATE CURSOR TABLE_DATA (tmp_id c(4), tmp_name c(50), tmp_city c(50), tmp_phone c(20), ;
-*!*	       tmp_zipcode c(4), tmp_e_mail c(50), tmp_birth_date d, tmp_salary n(15,2))
-
-*!*	* Se inserta los datos
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0001", "OCTAVIO PAZ", "MEXICO", "1234567", "052", "demo@mail.com.mx", CTOD("31/03/1914"), 1000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0002", "ERNEST HEMINGWAY", "ESTADOS UNIDOS", "1234567", "001", "demo@mail.com.us", CTOD("21/07/1899"), 2000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0003", "GABRIEL GARCIA MARQUEZ", "COLOMBIA", "1234567", "057", "demo@mail.com.co", CTOD("06/03/1927"), 3000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0004", "MARIO VARGAS LLOSA", "PERU", "1234567", "051", "demo@mail.com.pe", CTOD("28/03/1936"), 4000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0005", "JORGE LUIS BORGES", "ARGENTINA", "1234567", "054", "demo@mail.com.ar", CTOD("24/08/1899"), 5000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0006", "JUAN RAMON JIMENEZ", "ESPAÑA", "1234567", "034", "demo@mail.com.es", CTOD("23/12/1881"), 6000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0007", "GABRIELA MISTRAL", "CHILE", "1234567", "056", "demo@mail.com.cl", CTOD("07/04/1889"), 7000000.00)
-
-*!*	INSERT INTO TABLE_DATA (tmp_id, tmp_name, tmp_city, tmp_phone, tmp_zipcode, tmp_e_mail, tmp_birth_date, tmp_salary) ;
-*!*	       VALUES ("0008", "MIGUEL ANGEL ASTURIAS", "GUATEMALA", "1234567", "502", "demo@mail.com.gt", CTOD("19/10/1899"), 8000000.00)
-
-*!*	GO TOP
-
-*-----------------------------
 NOTE tmp_id
 NOTE tmp_name
 NOTE tmp_city
@@ -73,7 +40,8 @@ hBox = CreateBox(_Screen.HWnd, 0)
 =SetNum(hBox, Box_WantShow, 1)
 =SetNum(hBox, Box_WantPageCount, 1)  ' Activates pre-calculation
 
-SetStr(hBox, Box_FileName, FULLPATH("") + "PDF/PDF_Demo")
+*SetStr(hBox, Box_FileName, FULLPATH("") + "PDF_Demo") &&Nombre y ruta original
+SetStr(hBox, Box_FileName, FULLPATH("") + "PDF/"+Nombre_de_Archivo)
 
 CallBox(BeginDoc(hBox))
 SetNum(hBox, Box_FontBold, 1)
@@ -162,16 +130,9 @@ SetNum(hBox, Box_FontColor, RGB(0,0,0))
 
 
 * Rectángulo Redondeado
-xLin = xLin + 80
-SetNum(hBox, Box_BrushColor, RGB(204, 255, 204))
-CallBox(RoundRect(hBox, 100, xlin, 2000, xlin + 80, 20, 20))   
-
-
-* Elipse
-xLin = xLin + 100
-SetNum(hBox, Box_BrushColor, RGB(204, 204, 255))
-CallBox(Ellipse(hBox, 700, xlin, 1300, xlin + 500))   
-
+*!*	xLin = xLin + 80
+*!*	SetNum(hBox, Box_BrushColor, RGB(204, 255, 204))
+*!*	CallBox(RoundRect(hBox, 100, xlin, 2000, xlin + 80, 20, 20))   
 
 * Número de Página
 CallBox( MoveTo(hBox, 100, GetNumProp(hBox, Box_PageHeight) - 100))
